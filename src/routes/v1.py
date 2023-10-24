@@ -5,14 +5,16 @@ from ..types import RequestBody
 
 
 async def index(request):
-    '''Return delivery duration given JSON with following keys
+    '''Handle incoming JSON data to predict delivery duration.
     Request:
-        time_received: str
-        is_retail: bool
-        venue_id: str
+        JSON with the following keys:
+            - time_received (str): The timestamp of the order.
+            - is_retail (bool): Whether the order is retail.
+            - venue_id (str): Identifier of the venue.
     Response:
-        result: int | None
-        error: None | str
+        JSON response with the following keys:
+            - result (int | None): Predicted delivery duration in minutes or None if not available.
+            - error (None | str): An error message or None if no errors occurred.
     '''
     #Parse request body.
     body_raw = await request.json()

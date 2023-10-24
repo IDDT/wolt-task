@@ -4,12 +4,16 @@ from pydantic import BaseModel
 
 
 class ModelInput(NamedTuple):
+    '''A data structure representing model input.
+    '''
     is_retail: int
     avg_prep_time: float
     hour_of_day: int
 
 
 class RequestBody(BaseModel):
+    '''A Pydantic model representing the request body.
+    '''
     time_received:datetime.datetime
     is_retail:bool
     venue_id:str
