@@ -32,8 +32,7 @@ RUN pip3 install \
   --find-links=/wheels \
   -r requirements.txt
 EXPOSE 8000/tcp
-CMD [ "uvicorn", \
+CMD [ "uvicorn", "src:app", \
   "--host", "0.0.0.0", \
   "--port", "8000" \
-  "src:app" \
 ]
