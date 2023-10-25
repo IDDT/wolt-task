@@ -10,7 +10,6 @@ class ModelInput(NamedTuple):
     avg_prep_time: float
     hour_of_day: int
 
-
 class RequestBody(BaseModel):
     '''A Pydantic model representing the request body.
     '''
@@ -18,7 +17,14 @@ class RequestBody(BaseModel):
     is_retail:bool
     venue_id:str
 
+    def to_key(self):
+        '''Create cache key.
+        '''
+        return f'{self.time_received.hour}:{self.is_retail}:{self.venue_id}'
+
     def to_model_input(self, avg_prep_time:float) -> ModelInput:
+        '''Create model input.
+        '''
         return ModelInput(
             is_retail=int(self.is_retail),
             avg_prep_time=avg_prep_time,

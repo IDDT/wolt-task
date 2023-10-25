@@ -1,4 +1,5 @@
 import logging
+import os
 
 
 logging.basicConfig(
@@ -7,6 +8,10 @@ logging.basicConfig(
     level=logging.INFO,
     force=True
 )
+
+
+REDIS_URI = os.getenv('REDIS_URI', 'redis://127.0.0.1:6379')
+REDIS_EXPIRE_S = int(os.getenv('REDIS_EXPIRE_S', 300))
 
 
 FILEPATHS = {
