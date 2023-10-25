@@ -3,6 +3,7 @@ services:
   api:
     build:
       context: .
+      target: prod
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
