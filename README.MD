@@ -27,6 +27,7 @@ docker-compose up # launch the whole stack
 
 ### Running on localhost
 ```bash
+# Python version is specified in .python-version file. Used with pyenv.
 python3 -m venv .venv && source .venv/bin/activate
 pip3 install -U pip wheel && pip3 install -r requirements.txt
 python3 -m unittest tests # run unit tests
@@ -65,5 +66,6 @@ Please see `src/config.py`.
 - Caching requires a key strategy when the Redis cluster is shared across many services in the company.
 - Use supervisord to launch N instances of the server per container for better resource utilization.
 - Emit metrics for monitoring & alerts. Probably with something like statsd + Grafana.
+- Cache expiration time should be brought up for discussion with involved parties.
 - Implement graceful shutdown to close database and redis connections.
 - Handle missing venue_id, probably with a default value.
