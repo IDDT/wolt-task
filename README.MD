@@ -1,5 +1,5 @@
 # wolt-task
-This project implements API that etimates delivery time in realtime given the necessary inputs in the form of a POST request.
+Successful take home assignment for ML engineer position at Wolt. This project implements API that etimates delivery time in realtime given the necessary inputs in the form of a POST request.
 
 
 ### Endpoints
